@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:outlook/models/Email.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
@@ -8,8 +7,8 @@ import 'components/header.dart';
 
 class EmailScreen extends StatelessWidget {
   const EmailScreen({
-    Key key,
-    this.email,
+    Key? key,
+    required this.email,
   }) : super(key: key);
 
   final Email email;
@@ -50,16 +49,17 @@ class EmailScreen extends StatelessWidget {
                                       Text.rich(
                                         TextSpan(
                                           text: emails[1].name,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .button,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 16,
+                                          ),
                                           children: [
                                             TextSpan(
                                                 text:
                                                     "  <elvia.atkins@gmail.com> to Jerry Torp",
                                                 style: Theme.of(context)
                                                     .textTheme
-                                                    .caption),
+                                                    .bodySmall),
                                           ],
                                         ),
                                       ),
@@ -67,7 +67,7 @@ class EmailScreen extends StatelessWidget {
                                         "Inspiration for our new home",
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline6,
+                                            .headlineMedium,
                                       )
                                     ],
                                   ),
@@ -75,7 +75,7 @@ class EmailScreen extends StatelessWidget {
                                 SizedBox(width: kDefaultPadding / 2),
                                 Text(
                                   "Today at 15:32",
-                                  style: Theme.of(context).textTheme.caption,
+                                  style: Theme.of(context).textTheme.bodySmall,
                                 ),
                               ],
                             ),
@@ -108,13 +108,16 @@ class EmailScreen extends StatelessWidget {
                                           "Download All",
                                           style: Theme.of(context)
                                               .textTheme
-                                              .caption,
+                                              .bodySmall,
                                         ),
                                         SizedBox(width: kDefaultPadding / 4),
                                         WebsafeSvg.asset(
                                           "assets/Icons/Download.svg",
                                           height: 16,
-                                          color: kGrayColor,
+                                          colorFilter: ColorFilter.mode(
+                                            kGrayColor,
+                                            BlendMode.srcIn,
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -122,9 +125,14 @@ class EmailScreen extends StatelessWidget {
                                     SizedBox(height: kDefaultPadding / 2),
                                     SizedBox(
                                       height: 200,
-                                      child: StaggeredGridView.countBuilder(
-                                        physics: NeverScrollableScrollPhysics(),
-                                        crossAxisCount: 4,
+                                      child: GridView.builder(
+                                        gridDelegate:
+                                            SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 4,
+                                          mainAxisSpacing: kDefaultPadding,
+                                          crossAxisSpacing: kDefaultPadding,
+                                          childAspectRatio: 1.0,
+                                        ),
                                         itemCount: 3,
                                         itemBuilder:
                                             (BuildContext context, int index) =>
@@ -136,13 +144,6 @@ class EmailScreen extends StatelessWidget {
                                             fit: BoxFit.cover,
                                           ),
                                         ),
-                                        staggeredTileBuilder: (int index) =>
-                                            StaggeredTile.count(
-                                          2,
-                                          index.isOdd ? 2 : 1,
-                                        ),
-                                        mainAxisSpacing: kDefaultPadding,
-                                        crossAxisSpacing: kDefaultPadding,
                                       ),
                                     )
                                   ],

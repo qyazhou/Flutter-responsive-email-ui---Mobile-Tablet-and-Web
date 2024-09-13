@@ -6,14 +6,14 @@ import 'counter_badge.dart';
 
 class SideMenuItem extends StatelessWidget {
   const SideMenuItem({
-    Key key,
-    this.isActive,
+    Key? key,
+    this.isActive = false,
     this.isHover = false,
-    this.itemCount,
+    this.itemCount = 0,
     this.showBorder = true,
-    @required this.iconSrc,
-    @required this.title,
-    @required this.press,
+    required this.iconSrc,
+    required this.title,
+    required this.press,
   }) : super(key: key);
 
   final bool isActive, isHover, showBorder;
@@ -51,18 +51,21 @@ class SideMenuItem extends StatelessWidget {
                     WebsafeSvg.asset(
                       iconSrc,
                       height: 20,
-                      color: (isActive || isHover) ? kPrimaryColor : kGrayColor,
+                      colorFilter: ColorFilter.mode(
+                        (isActive || isHover) ? kPrimaryColor : kGrayColor,
+                        BlendMode.srcIn,
+                      ),
                     ),
                     SizedBox(width: kDefaultPadding * 0.75),
                     Text(
                       title,
-                      style: Theme.of(context).textTheme.button.copyWith(
+                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
                             color:
                                 (isActive || isHover) ? kTextColor : kGrayColor,
                           ),
                     ),
                     Spacer(),
-                    if (itemCount != null) CounterBadge(count: itemCount)
+                    CounterBadge(count: itemCount)
                   ],
                 ),
               ),

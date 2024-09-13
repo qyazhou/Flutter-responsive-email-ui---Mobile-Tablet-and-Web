@@ -11,7 +11,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -37,15 +37,16 @@ class SideMenu extends StatelessWidget {
                 ],
               ),
               SizedBox(height: kDefaultPadding),
-              FlatButton.icon(
-                minWidth: double.infinity,
-                padding: EdgeInsets.symmetric(
-                  vertical: kDefaultPadding,
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                  minimumSize:
+                      Size(double.infinity, 0), // Set width to infinity
+                  padding: EdgeInsets.symmetric(vertical: kDefaultPadding),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  backgroundColor: kPrimaryColor,
                 ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                color: kPrimaryColor,
                 onPressed: () {},
                 icon: WebsafeSvg.asset("assets/Icons/Edit.svg", width: 16),
                 label: Text(
@@ -57,15 +58,16 @@ class SideMenu extends StatelessWidget {
                 bottomShadowColor: Color(0xFF234395).withOpacity(0.2),
               ),
               SizedBox(height: kDefaultPadding),
-              FlatButton.icon(
-                minWidth: double.infinity,
-                padding: EdgeInsets.symmetric(
-                  vertical: kDefaultPadding,
+              TextButton.icon(
+                style: TextButton.styleFrom(
+                  minimumSize:
+                      Size(double.infinity, 0), // Set width to infinity
+                  padding: EdgeInsets.symmetric(vertical: kDefaultPadding),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  backgroundColor: kBgDarkColor,
                 ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                color: kBgDarkColor,
                 onPressed: () {},
                 icon: WebsafeSvg.asset("assets/Icons/Download.svg", width: 16),
                 label: Text(
