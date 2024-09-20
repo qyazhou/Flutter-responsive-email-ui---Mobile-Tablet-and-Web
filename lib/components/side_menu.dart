@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:outlook/responsive.dart';
+import 'package:baseball/responsive.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../constants.dart';
@@ -27,10 +27,16 @@ class SideMenu extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Image.asset(
-                    "assets/images/Logo Outlook.png",
-                    width: 46,
+                  Spacer(),
+                  CircleAvatar(
+                    maxRadius: 36,
+                    backgroundColor: Colors.transparent,
+                    backgroundImage: AssetImage("assets/images/user_2.png"),
                   ),
+                  // Image.asset(
+                  //   "assets/images/yakyo.png",
+                  //   width: 46,
+                  // ),
                   Spacer(),
                   // We don't want to show this close button on Desktop mood
                   if (!Responsive.isDesktop(context)) CloseButton(),
@@ -50,7 +56,7 @@ class SideMenu extends StatelessWidget {
                 onPressed: () {},
                 icon: WebsafeSvg.asset("assets/Icons/Edit.svg", width: 16),
                 label: Text(
-                  "New message",
+                  "情報の変更",
                   style: TextStyle(color: Colors.white),
                 ),
               ).addNeumorphism(
@@ -69,9 +75,9 @@ class SideMenu extends StatelessWidget {
                   backgroundColor: kBgDarkColor,
                 ),
                 onPressed: () {},
-                icon: WebsafeSvg.asset("assets/Icons/Download.svg", width: 16),
+                icon: WebsafeSvg.asset("/Icons/logout.svg", width: 16),
                 label: Text(
-                  "Get messages",
+                  "ログアウト",
                   style: TextStyle(color: kTextColor),
                 ),
               ).addNeumorphism(),
@@ -79,27 +85,27 @@ class SideMenu extends StatelessWidget {
               // Menu Items
               SideMenuItem(
                 press: () {},
-                title: "Inbox",
+                title: "実況中継",
                 iconSrc: "assets/Icons/Inbox.svg",
                 isActive: true,
                 itemCount: 3,
               ),
               SideMenuItem(
                 press: () {},
-                title: "Sent",
+                title: "チーム情報",
                 iconSrc: "assets/Icons/Send.svg",
                 isActive: false,
               ),
               SideMenuItem(
                 press: () {},
-                title: "Drafts",
+                title: "試合募集",
                 iconSrc: "assets/Icons/File.svg",
                 isActive: false,
               ),
               SideMenuItem(
                 press: () {},
-                title: "Deleted",
-                iconSrc: "assets/Icons/Trash.svg",
+                title: "チャット",
+                iconSrc: "assets/Icons/chat_conversation.svg",
                 isActive: false,
                 showBorder: false,
               ),

@@ -1,6 +1,6 @@
 {
-    "name": "outlook",
-    "short_name": "outlook",
+    "name": "baseball",
+    "short_name": "baseball",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -35,43 +35,43 @@ List demo_data = [
   {
     "name": "Apple",
     "image": "assets/images/user_1.png",
-    "subject": "iPhone 12 is here",
+    "subject": "12",
     "isAttachmentAvailable": false,
     "isChecked": true,
     "tagColor": Color(0xFF23CF91),
     "time": "Now"
   },
   {
-    "name": "Elvia Atkins",
+    "name": "Nokia",
     "image": "assets/images/user_2.png",
-    "subject": "Inspiration for our new home",
+    "subject": "2",
     "isAttachmentAvailable": true,
     "isChecked": false,
     "tagColor": Color(0xFF23CF91),
     "time": "15:32"
   },
   {
-    "name": "Marvin Kiehn",
+    "name": "Marvin",
     "image": "assets/images/user_3.png",
-    "subject": "Business-focused empowering the world",
+    "subject": "3",
     "isAttachmentAvailable": true,
     "isChecked": false,
     "tagColor": Color(0xFF23CF91),
     "time": "14:27",
   },
   {
-    "name": "Domenic Bosco",
+    "name": "Domenic",
     "image": "assets/images/user_4.png",
-    "subject": "The fastest way to Design",
+    "subject": "4",
     "isAttachmentAvailable": false,
     "isChecked": true,
     "tagColor": Color(0xFF23CF91),
     "time": "10:43"
   },
   {
-    "name": "Elenor Bauch",
+    "name": "Elenor",
     "image": "assets/images/user_5.png",
-    "subject": "New job opportunities",
+    "subject": "5",
     "isAttachmentAvailable": false,
     "isChecked": false,
     "tagColor": Color(0xFF3A6FF7),
@@ -79,5 +79,4 @@ List demo_data = [
   }
 ];
 
-String emailDemoText =
-    "Corporis illo provident. Sunt omnis neque et aperiam. Nemo ut dolorum fugit eum sed. Corporis illo provident. Sunt omnis neque et aperiam. Nemo ut dolorum fugit eum sed. Corporis illo provident. Sunt omnis neque et aperiam. Nemo ut dolorum fugit eum sed";
+String emailDemoText = "もうすぐ始まります";

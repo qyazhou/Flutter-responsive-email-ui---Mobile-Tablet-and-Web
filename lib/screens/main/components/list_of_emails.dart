@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:outlook/components/side_menu.dart';
-import 'package:outlook/models/Email.dart';
-import 'package:outlook/responsive.dart';
-import 'package:outlook/screens/email/email_screen.dart';
+import 'package:baseball/components/side_menu.dart';
+import 'package:baseball/models/Email.dart';
+import 'package:baseball/responsive.dart';
+import 'package:baseball/screens/email/email_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../../constants.dart';

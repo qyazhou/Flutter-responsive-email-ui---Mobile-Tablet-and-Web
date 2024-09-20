@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:outlook/constants.dart';
-import 'package:outlook/screens/main/main_screen.dart';
+import 'package:baseball/constants.dart';
+import 'package:baseball/screens/main/main_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'baseball',
       theme: ThemeData(),
       home: MainScreen(),
     );

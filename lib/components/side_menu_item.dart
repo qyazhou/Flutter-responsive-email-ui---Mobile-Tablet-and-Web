@@ -65,7 +65,7 @@ class SideMenuItem extends StatelessWidget {
                           ),
                     ),
                     Spacer(),
-                    CounterBadge(count: itemCount)
+                    //CounterBadge(count: itemCount)
                   ],
                 ),
               ),

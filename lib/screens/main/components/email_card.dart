@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:outlook/models/Email.dart';
+import 'package:baseball/models/Email.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../../constants.dart';
@@ -69,26 +69,63 @@ class EmailCard extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Column(
-                        children: [
-                          Text(
-                            email.time,
-                            style:
-                                Theme.of(context).textTheme.bodySmall?.copyWith(
-                                      color: isActive ? Colors.white70 : null,
-                                    ),
-                          ),
-                          SizedBox(height: 5),
-                          if (email.isAttachmentAvailable)
-                            WebsafeSvg.asset(
-                              "assets/Icons/Paperclip.svg",
-                              colorFilter: ColorFilter.mode(
-                                isActive ? Colors.white70 : kGrayColor,
-                                BlendMode.srcIn,
+                      SizedBox(width: kDefaultPadding / 2),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Text.rich(
+                            TextSpan(
+                              text: "${email.name} \n",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: isActive ? Colors.white : kTextColor,
                               ),
-                            )
-                        ],
+                              children: [
+                                TextSpan(
+                                  text: email.subject,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall
+                                      ?.copyWith(
+                                        color: isActive
+                                            ? Colors.white
+                                            : kTextColor,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
+
+                      SizedBox(
+                        width: 32,
+                        child: CircleAvatar(
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: AssetImage(email.image),
+                        ),
+                      ),
+                      // Column(
+                      //   children: [
+                      //     Text(
+                      //       email.time,
+                      //       style:
+                      //           Theme.of(context).textTheme.bodySmall?.copyWith(
+                      //                 color: isActive ? Colors.white70 : null,
+                      //               ),
+                      //     ),
+                      //     SizedBox(height: 5),
+                      //     if (email.isAttachmentAvailable)
+                      //       WebsafeSvg.asset(
+                      //         "assets/Icons/Paperclip.svg",
+                      //         colorFilter: ColorFilter.mode(
+                      //           isActive ? Colors.white70 : kGrayColor,
+                      //           BlendMode.srcIn,
+                      //         ),
+                      //       )
+                      //   ],
+                      // ),
                     ],
                   ),
                   SizedBox(height: kDefaultPadding / 2),

@@ -39,10 +39,9 @@ class Tags extends StatelessWidget {
           ],
         ),
         SizedBox(height: kDefaultPadding / 2),
-        buildTag(context, color: Color(0xFF23CF91), title: "Design"),
-        buildTag(context, color: Color(0xFF3A6FF7), title: "Work"),
-        buildTag(context, color: Color(0xFFF3CF50), title: "Friends"),
-        buildTag(context, color: Color(0xFF8338E1), title: "Family"),
+        buildTag(context, color: Color(0xFF23CF91), title: "Green"),
+        buildTag(context, color: Color(0xFF3A6FF7), title: "Blue"),
+        buildTag(context, color: Color(0xFFF3CF50), title: "Yellow"),
       ],
     );
   }
