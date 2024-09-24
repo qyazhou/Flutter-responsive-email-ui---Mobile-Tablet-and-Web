@@ -5,7 +5,8 @@ class BaseballStatsTable extends StatelessWidget {
 
   // 定义二维数组来存储表格数据
   final List<List<String>> tableData = [
-    ['打順', '選手名', '盗塁', '打点', '得点', '1', '2', '3', '4'],
+    ['打順', '選手名', '盗塁', '打点', '得点', '打席', '', '', ''],
+    ['', '', '', '', '', '1', '2', '3', '4'],
     ['1', '太田直仁', '0', '3', '2', '遊安', '右二', '右二', '三振'],
     ['2', '篠崎優', '1', '1', '1', '四球', '左安', '犠打', '四球'],
     ['3', '本橋雄一', '0', '1', '0', '投ゴ', '犠飛', '一ゴ', '左安'],
@@ -22,34 +23,123 @@ class BaseballStatsTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 9, // 表示9列
-        childAspectRatio: 2.0,
-        mainAxisSpacing: 1.0,
-        crossAxisSpacing: 1.0,
-      ),
-      itemCount: tableData.length * tableData[0].length, // 总项目数
-      itemBuilder: (context, index) {
-        final row = index ~/ 9; // 计算当前单元格的行
-        final col = index % 9; // 计算当前单元格的列
-        return Container(
-          alignment: Alignment.center,
-          padding: const EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.black),
-            color: row == 0 ? Colors.yellow : Colors.white, // 第一行背景为黄色
-          ),
-          child: Text(
-            tableData[row][col],
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight:
-                  row == 0 ? FontWeight.bold : FontWeight.normal, // 标题行加粗
+    return Column(
+      children: [
+        Row(
+          children: [_buildHeaderCell('野手成績', flex: 9)],
+        ),
+        // 使用Row和Expanded手动构建表头部分，合并单元格
+        Row(
+          children: [
+            _buildHeaderCell('打順', flex: 1),
+            _buildHeaderCell('選手名', flex: 1),
+            _buildHeaderCell('盗塁', flex: 1),
+            _buildHeaderCell('打点', flex: 1),
+            _buildHeaderCell('得点', flex: 1),
+            _buildHeaderCell('打席1', flex: 4),
+          ],
+        ),
+        // 使用Row显示“1, 2, 3, 4”
+        Row(
+          children: [
+            _buildEmptyCell(),
+            _buildEmptyCell(),
+            _buildEmptyCell(),
+            _buildEmptyCell(),
+            _buildEmptyCell(),
+            _buildHeaderCell('1'),
+            _buildHeaderCell('2'),
+            _buildHeaderCell('3'),
+            _buildHeaderCell('4'),
+          ],
+        ),
+        // 表格内容部分使用GridView显示数据
+        Expanded(
+          child: GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 9, // 一行9列
+              childAspectRatio: 2.0,
+              mainAxisSpacing: 1.0,
+              crossAxisSpacing: 1.0,
             ),
+            itemCount: (tableData.length - 2) * 9, // 数据行的项目数，去掉前两行表头
+            itemBuilder: (context, index) {
+              final row = (index ~/ 9) + 2; // 数据从第3行开始
+              final col = index % 9;
+
+              return Container(
+                alignment: Alignment.center,
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
+                ),
+                child: Text(
+                  tableData[row][col],
+                  style: const TextStyle(fontSize: 14),
+                ),
+              );
+            },
           ),
-        );
-      },
+        ),
+      ],
     );
   }
+
+// 辅助函数：创建单元格的样式
+  Widget _buildCell({
+    String? title, // 如果传入了title则为表头单元格，否则为空白单元格
+    Color backgroundColor = Colors.white, // 默认背景色为白色
+    FontWeight fontWeight = FontWeight.normal, // 默认字体不加粗
+    int flex = 1, // 默认为1倍的伸缩比例
+  }) {
+    return Expanded(
+      flex: flex,
+      child: Container(
+        padding: const EdgeInsets.all(8.0),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black),
+          color: backgroundColor,
+        ),
+        child: title != null
+            ? Text(
+                title,
+                style: TextStyle(
+                  fontWeight: fontWeight,
+                  fontSize: 10,
+                ),
+              )
+            : null, // 如果没有标题内容，保持单元格为空
+      ),
+    );
+  }
+
+// 使用统一的样式函数来创建表头单元格
+  Widget _buildHeaderCell(String title, {int flex = 1}) {
+    return _buildCell(
+      title: title,
+      backgroundColor: Color.fromARGB(255, 248, 245, 223),
+      fontWeight: FontWeight.bold, // 表头文字加粗
+      flex: flex,
+    );
+  }
+
+// 使用统一的样式函数来创建空白单元格
+  Widget _buildEmptyCell({int flex = 1}) {
+    return _buildCell(
+      title: "",
+      backgroundColor: Color.fromARGB(255, 248, 245, 223),
+      fontWeight: FontWeight.bold, // 表头文字加粗
+      flex: flex,
+    );
+  }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(title: const Text('野手成績')),
+      body: BaseballStatsTable(),
+    ),
+  ));
 }

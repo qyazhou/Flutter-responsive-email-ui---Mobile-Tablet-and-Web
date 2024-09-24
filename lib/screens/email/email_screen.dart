@@ -14,6 +14,9 @@ class EmailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
         color: Colors.white,
@@ -21,7 +24,7 @@ class EmailScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 150, // 指定 Header 的高度
+                height: screenHeight * 0.3, // 20% of screen height for Header
                 child: Header(),
               ),
               Divider(thickness: 1),
@@ -31,7 +34,6 @@ class EmailScreen extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // 将 Expanded 包裹 Column，使其占据可用宽度
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,9 +43,11 @@ class EmailScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   SizedBox(
-                                    height: 600,
+                                    height: screenHeight *
+                                        0.6, // 60% of screen height
+                                    width: screenWidth, // Full width
                                     child: BaseballStatsTable(),
-                                  )
+                                  ),
                                 ],
                               ),
                             ),
@@ -53,7 +57,7 @@ class EmailScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
