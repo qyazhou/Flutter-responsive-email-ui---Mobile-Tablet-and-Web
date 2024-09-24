@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:baseball/models/Email.dart';
-import 'package:websafe_svg/websafe_svg.dart';
-
 import '../../constants.dart';
 import 'components/header.dart';
+import 'components/baseball_stats_table.dart';
 
 class EmailScreen extends StatelessWidget {
   const EmailScreen({
@@ -43,25 +42,7 @@ class EmailScreen extends StatelessWidget {
                                 children: [
                                   SizedBox(
                                     height: 600,
-                                    child: GridView.builder(
-                                      gridDelegate:
-                                          SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 10,
-                                        mainAxisSpacing: kMinPadding,
-                                        crossAxisSpacing: kMinPadding,
-                                        childAspectRatio: 1.5,
-                                      ),
-                                      itemCount: 100,
-                                      itemBuilder:
-                                          (BuildContext context, int index) =>
-                                              ClipRRect(
-                                        borderRadius: BorderRadius.circular(2),
-                                        child: Image.asset(
-                                          "assets/images/Img_$index.png",
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
+                                    child: BaseballStatsTable(),
                                   )
                                 ],
                               ),
