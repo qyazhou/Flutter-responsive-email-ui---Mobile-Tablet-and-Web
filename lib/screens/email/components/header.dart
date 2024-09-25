@@ -101,21 +101,22 @@ class Header extends StatelessWidget {
                         // 队名和得分一起放入一个 Expanded 中
                         Expanded(
                           child: Container(
-                            color: Colors.black, // 设置背景色为黑色
+                            color:
+                                Color.fromARGB(255, 16, 101, 239), // 设置背景色为黑色
                             padding: const EdgeInsets.all(8.0), // 内边距，避免文字紧贴边框
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.center, // 水平居中
                               children: [
                                 Text(
-                                  'Team A', // 队名
+                                  'R', // 队名
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold, // 加粗字体
                                     color: Colors.white, // 设置文字为白色以便在黑色背景上显示
                                   ),
                                 ),
-                                const SizedBox(width: 8), // 添加一点间距
+                                const SizedBox(width: 16), // 添加一点间距
                                 Text(
                                   '5', // 得分
                                   style: const TextStyle(
@@ -132,23 +133,45 @@ class Header extends StatelessWidget {
                         ),
                         Expanded(
                           child: Container(
-                            color: Colors.black, // 设置背景色为黑色
+                            color:
+                                Color.fromARGB(255, 16, 101, 239), // 设置背景色为黑色
                             padding: const EdgeInsets.all(8.0), // 内边距
                             child: Row(
                               mainAxisAlignment:
                                   MainAxisAlignment.center, // 水平居中
                               children: [
                                 Text(
-                                  'Team B', // 队名
+                                  'VS',
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold, // 加粗字体
                                     color: Colors.white, // 设置文字颜色为白色
                                   ),
                                 ),
-                                const SizedBox(width: 8), // 添加一点间距
+                              ],
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            color:
+                                Color.fromARGB(255, 16, 101, 239), // 设置背景色为黑色
+                            padding: const EdgeInsets.all(8.0), // 内边距
+                            child: Row(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.center, // 水平居中
+                              children: [
                                 Text(
-                                  '5', // 得分
+                                  'B', // 队名
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold, // 加粗字体
+                                    color: Colors.white, // 设置文字颜色为白色
+                                  ),
+                                ),
+                                const SizedBox(width: 16), // 添加一点间距
+                                Text(
+                                  '0', // 得分
                                   style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold, // 加粗字体

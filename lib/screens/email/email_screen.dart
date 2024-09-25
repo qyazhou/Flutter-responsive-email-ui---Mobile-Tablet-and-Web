@@ -24,7 +24,7 @@ class EmailScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: screenHeight * 0.3, // 20% of screen height for Header
+                height: screenHeight * 0.33, // 20% of screen height for Header
                 child: Header(),
               ),
               Divider(thickness: 1),

@@ -98,7 +98,7 @@ class BaseballStatsTable extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.black),
+          border: Border.all(color: const Color.fromARGB(255, 253, 251, 251)),
           color: backgroundColor,
         ),
         child: title != null
@@ -118,7 +118,7 @@ class BaseballStatsTable extends StatelessWidget {
   Widget _buildHeaderCell(String title, {int flex = 1}) {
     return _buildCell(
       title: title,
-      backgroundColor: Color.fromARGB(255, 248, 245, 223),
+      backgroundColor: Color.fromARGB(255, 211, 225, 247),
       fontWeight: FontWeight.bold, // 表头文字加粗
       flex: flex,
     );
@@ -128,7 +128,7 @@ class BaseballStatsTable extends StatelessWidget {
   Widget _buildEmptyCell({int flex = 1}) {
     return _buildCell(
       title: "",
-      backgroundColor: Color.fromARGB(255, 248, 245, 223),
+      backgroundColor: Color.fromARGB(255, 211, 225, 247),
       fontWeight: FontWeight.bold, // 表头文字加粗
       flex: flex,
     );
