@@ -88,12 +88,29 @@ class Header extends StatelessWidget {
         padding: const EdgeInsets.all(kDefaultPadding),
         child: Row(
           children: [
-            if (isMobile) BackButton(),
+            //if (isMobile) BackButton(),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            '5',
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            '5',
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                        ),
+                      ],
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -110,8 +127,7 @@ class Header extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     SizedBox(
-                                      height:
-                                          isMobile ? 200 : 110, // 移动设备显示更多高度
+                                      height: 110, // 移动设备显示更多高度
                                       child: GridView.builder(
                                         gridDelegate:
                                             SliverGridDelegateWithFixedCrossAxisCount(
@@ -138,7 +154,7 @@ class Header extends StatelessWidget {
                                                 scoreBoard[row]
                                                     [col], // 显示二维数组中的值
                                                 style: TextStyle(
-                                                  fontSize: 16, // 设置文本大小
+                                                  fontSize: 10, // 设置文本大小
                                                   color: Colors.black, // 设置文本颜色
                                                 ),
                                               ),
