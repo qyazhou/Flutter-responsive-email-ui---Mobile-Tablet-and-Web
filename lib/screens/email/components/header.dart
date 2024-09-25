@@ -95,18 +95,70 @@ class Header extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center, // 水平居中
+                      crossAxisAlignment: CrossAxisAlignment.center, // 垂直居中
                       children: [
+                        // 队名和得分一起放入一个 Expanded 中
                         Expanded(
-                          child: Text(
-                            '5',
-                            style: const TextStyle(fontSize: 14),
+                          child: Container(
+                            color: Colors.black, // 设置背景色为黑色
+                            padding: const EdgeInsets.all(8.0), // 内边距，避免文字紧贴边框
+                            child: Row(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.center, // 水平居中
+                              children: [
+                                Text(
+                                  'Team A', // 队名
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold, // 加粗字体
+                                    color: Colors.white, // 设置文字为白色以便在黑色背景上显示
+                                  ),
+                                ),
+                                const SizedBox(width: 8), // 添加一点间距
+                                Text(
+                                  '5', // 得分
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold, // 加粗字体
+                                    color: Colors.white, // 设置文字为白色
+                                  ),
+                                  textAlign:
+                                      TextAlign.center, // 确保文字在Container内居中
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Expanded(
-                          child: Text(
-                            '5',
-                            style: const TextStyle(fontSize: 14),
+                          child: Container(
+                            color: Colors.black, // 设置背景色为黑色
+                            padding: const EdgeInsets.all(8.0), // 内边距
+                            child: Row(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.center, // 水平居中
+                              children: [
+                                Text(
+                                  'Team B', // 队名
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold, // 加粗字体
+                                    color: Colors.white, // 设置文字颜色为白色
+                                  ),
+                                ),
+                                const SizedBox(width: 8), // 添加一点间距
+                                Text(
+                                  '5', // 得分
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold, // 加粗字体
+                                    color: Colors.white, // 设置文字颜色为白色
+                                  ),
+                                  textAlign:
+                                      TextAlign.center, // 确保文字在Container内居中
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
