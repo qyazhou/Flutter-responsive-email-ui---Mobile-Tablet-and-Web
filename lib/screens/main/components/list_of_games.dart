@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:baseball/components/side_menu.dart';
-import 'package:baseball/models/Email.dart';
+import 'package:baseball/models/game.dart';
 import 'package:baseball/responsive.dart';
-import 'package:baseball/screens/email/email_screen.dart';
+import 'package:baseball/screens/game/game_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../../constants.dart';
-import 'email_card.dart';
+import 'game_card.dart';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-class ListOfEmails extends StatefulWidget {
+class ListOfGames extends StatefulWidget {
   // Press "Command + ."
-  const ListOfEmails({
+  const ListOfGames({
     Key? key,
   }) : super(key: key);
 
   @override
-  _ListOfEmailsState createState() => _ListOfEmailsState();
+  _ListOfGamesState createState() => _ListOfGamesState();
 }
 
-class _ListOfEmailsState extends State<ListOfEmails> {
+class _ListOfGamesState extends State<ListOfGames> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -112,17 +112,16 @@ class _ListOfEmailsState extends State<ListOfEmails> {
               SizedBox(height: kDefaultPadding),
               Expanded(
                 child: ListView.builder(
-                  itemCount: emails.length,
+                  itemCount: games.length,
                   // On mobile this active dosen't mean anything
-                  itemBuilder: (context, index) => EmailCard(
+                  itemBuilder: (context, index) => GameCard(
                     isActive: Responsive.isMobile(context) ? false : index == 0,
-                    email: emails[index],
+                    game: games[index],
                     press: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>
-                              EmailScreen(email: emails[index]),
+                          builder: (context) => GameScreen(game: games[index]),
                         ),
                       );
                     },

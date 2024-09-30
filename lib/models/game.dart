@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Email {
+class Game {
   final String image, name, subject, body, time;
   final bool isAttachmentAvailable, isChecked;
   final Color tagColor;
 
-  Email({
+  Game({
     required this.time,
     required this.isChecked,
     required this.image,
@@ -17,9 +17,9 @@ class Email {
   });
 }
 
-List<Email> emails = List.generate(
+List<Game> games = List.generate(
   demo_data.length,
-  (index) => Email(
+  (index) => Game(
     name: demo_data[index]['name'],
     image: demo_data[index]['image'],
     subject: demo_data[index]['subject'],
@@ -27,7 +27,7 @@ List<Email> emails = List.generate(
     isChecked: demo_data[index]['isChecked'],
     tagColor: demo_data[index]['tagColor'],
     time: demo_data[index]['time'],
-    body: emailDemoText,
+    body: gameDemoText,
   ),
 );
 
@@ -79,4 +79,4 @@ List demo_data = [
   }
 ];
 
-String emailDemoText = "もうすぐ始まります";
+String gameDemoText = "もうすぐ始まります";

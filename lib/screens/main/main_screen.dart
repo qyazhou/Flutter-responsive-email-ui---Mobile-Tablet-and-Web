@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:baseball/components/side_menu.dart';
 import 'package:baseball/responsive.dart';
-import 'package:baseball/screens/email/email_screen.dart';
-import 'components/list_of_emails.dart';
-import 'package:baseball/models/Email.dart';
+import 'package:baseball/screens/game/game_screen.dart';
+import 'components/list_of_games.dart';
+import 'package:baseball/models/game.dart';
 
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // It provide us the width and height
     Size _size = MediaQuery.of(context).size;
-    // 示例 Email 对象，你需要用实际的对象替换
-    final Email exampleEmail = Email(
+    // 示例 Game 对象，你需要用实际的对象替换
+    final Game exampleGame = Game(
       name: 'Elvia Atkins',
       image: 'assets/images/Img_0.png', // 使用实际路径
       subject: 'Inspiration for our new home',
@@ -25,16 +25,16 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       body: Responsive(
         // Let's work on our mobile part
-        mobile: ListOfEmails(),
+        mobile: ListOfGames(),
         tablet: Row(
           children: [
             Expanded(
               flex: 6,
-              child: ListOfEmails(),
+              child: ListOfGames(),
             ),
             Expanded(
               flex: 9,
-              child: EmailScreen(email: exampleEmail),
+              child: GameScreen(game: exampleGame),
             ),
           ],
         ),
@@ -48,11 +48,11 @@ class MainScreen extends StatelessWidget {
             ),
             Expanded(
               flex: _size.width > 1340 ? 3 : 5,
-              child: ListOfEmails(),
+              child: ListOfGames(),
             ),
             Expanded(
               flex: _size.width > 1340 ? 8 : 10,
-              child: EmailScreen(email: exampleEmail),
+              child: GameScreen(game: exampleGame),
             ),
           ],
         ),

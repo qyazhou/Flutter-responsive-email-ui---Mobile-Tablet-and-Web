@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:baseball/models/Email.dart';
+import 'package:baseball/models/game.dart';
 import '../../constants.dart';
 import 'components/header.dart';
 import 'components/baseball_stats_table.dart';
 
-class EmailScreen extends StatelessWidget {
-  const EmailScreen({
+class GameScreen extends StatelessWidget {
+  const GameScreen({
     Key? key,
-    required this.email,
+    required this.game,
   }) : super(key: key);
 
-  final Email email;
+  final Game game;
 
   @override
   Widget build(BuildContext context) {
