@@ -41,14 +41,14 @@ class GameCard extends StatelessWidget {
                         width: 32,
                         child: CircleAvatar(
                           backgroundColor: Colors.transparent,
-                          backgroundImage: AssetImage(game.image),
+                          backgroundImage: AssetImage(game.homeTeamLogo),
                         ),
                       ),
                       SizedBox(width: kDefaultPadding / 2),
                       Expanded(
                         child: Text.rich(
                           TextSpan(
-                            text: "${game.name} \n",
+                            text: "${game.homeScore} \n",
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -56,7 +56,7 @@ class GameCard extends StatelessWidget {
                             ),
                             children: [
                               TextSpan(
-                                text: game.subject,
+                                text: game.homeTeamName,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall
@@ -75,7 +75,7 @@ class GameCard extends StatelessWidget {
                           alignment: Alignment.centerRight,
                           child: Text.rich(
                             TextSpan(
-                              text: "${game.name} \n",
+                              text: "${game.awayScore} \n",
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -83,7 +83,7 @@ class GameCard extends StatelessWidget {
                               ),
                               children: [
                                 TextSpan(
-                                  text: game.subject,
+                                  text: game.awayTeamName,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall
@@ -103,7 +103,7 @@ class GameCard extends StatelessWidget {
                         width: 32,
                         child: CircleAvatar(
                           backgroundColor: Colors.transparent,
-                          backgroundImage: AssetImage(game.image),
+                          backgroundImage: AssetImage(game.awayTeamLogo),
                         ),
                       ),
                       // Column(
@@ -171,7 +171,7 @@ class GameCard extends StatelessWidget {
                 "assets/Icons/Markup filled.svg",
                 height: 18,
                 colorFilter: ColorFilter.mode(
-                  game.tagColor,
+                  game.homeTeamColor,
                   BlendMode.srcIn,
                 ),
               ),

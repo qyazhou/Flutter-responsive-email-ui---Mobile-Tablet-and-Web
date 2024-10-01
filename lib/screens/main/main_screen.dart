@@ -10,17 +10,19 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // It provide us the width and height
     Size _size = MediaQuery.of(context).size;
-    // 示例 Game 对象，你需要用实际的对象替换
     final Game exampleGame = Game(
-      name: 'Elvia Atkins',
-      image: 'assets/images/Img_0.png', // 使用实际路径
-      subject: 'Inspiration for our new home',
-      body:
-          'Hello my love, \n \nSunt architecto voluptatum esse tempora sint nihil minus incidunt nisi. Perspiciatis natus quo unde magnam numquam pariatur amet ut. Perspiciatis ab totam. Ut labore maxime provident. Voluptate ea omnis et ipsum asperiores laborum repellat explicabo fuga. Dolore voluptatem praesentium quis eos laborum dolores cupiditate nemo labore. \n \nLove you, \n\nElvia',
-      time: 'Today at 15:32',
-      isChecked: false,
-      isAttachmentAvailable: true,
-      tagColor: Colors.blue, // 使用实际的颜色
+      homeTeamName: "Team A",
+      awayTeamName: "Team B",
+      homeTeamLogo: "assets/images/user_1.png",
+      awayTeamLogo: "assets/images/user_2.png",
+      isAttachmentAvailable: false,
+      isChecked: true,
+      homeTeamColor: Color(0xFF23CF91),
+      awayTeamColor: Color(0xFF3A6FF7),
+      time: "Now",
+      body: gameDemoText,
+      homeScore: 5, // 主队分数
+      awayScore: 3, // 客队分数
     );
     return Scaffold(
       body: Responsive(

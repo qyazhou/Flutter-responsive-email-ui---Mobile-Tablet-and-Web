@@ -1,82 +1,120 @@
 import 'package:flutter/material.dart';
 
 class Game {
-  final String image, name, subject, body, time;
-  final bool isAttachmentAvailable, isChecked;
-  final Color tagColor;
+  final String homeTeamLogo;
+  final String awayTeamLogo;
+  final String homeTeamName;
+  final String awayTeamName;
+  final String body;
+  final String time;
+  final bool isAttachmentAvailable;
+  final bool isChecked;
+  final Color homeTeamColor;
+  final Color awayTeamColor;
+  final int homeScore; // 主队分数
+  final int awayScore; // 客队分数
 
   Game({
     required this.time,
     required this.isChecked,
-    required this.image,
-    required this.name,
-    required this.subject,
+    required this.homeTeamLogo,
+    required this.awayTeamLogo,
+    required this.homeTeamName,
+    required this.awayTeamName,
     required this.body,
     required this.isAttachmentAvailable,
-    required this.tagColor,
+    required this.homeTeamColor,
+    required this.awayTeamColor,
+    required this.homeScore,
+    required this.awayScore,
   });
 }
 
 List<Game> games = List.generate(
   demo_data.length,
   (index) => Game(
-    name: demo_data[index]['name'],
-    image: demo_data[index]['image'],
-    subject: demo_data[index]['subject'],
+    homeTeamName: demo_data[index]['homeTeamName'],
+    awayTeamName: demo_data[index]['awayTeamName'],
+    homeTeamLogo: demo_data[index]['homeTeamLogo'],
+    awayTeamLogo: demo_data[index]['awayTeamLogo'],
     isAttachmentAvailable: demo_data[index]['isAttachmentAvailable'],
     isChecked: demo_data[index]['isChecked'],
-    tagColor: demo_data[index]['tagColor'],
+    homeTeamColor: demo_data[index]['homeTeamColor'],
+    awayTeamColor: demo_data[index]['awayTeamColor'],
     time: demo_data[index]['time'],
     body: gameDemoText,
+    homeScore: demo_data[index]['homeScore'], // 主队分数
+    awayScore: demo_data[index]['awayScore'], // 客队分数
   ),
 );
 
 List demo_data = [
   {
-    "name": "Apple",
-    "image": "assets/images/user_1.png",
-    "subject": "12",
+    "homeTeamName": "Team A",
+    "awayTeamName": "Team B",
+    "homeTeamLogo": "assets/images/user_1.png",
+    "awayTeamLogo": "assets/images/user_2.png",
     "isAttachmentAvailable": false,
     "isChecked": true,
-    "tagColor": Color(0xFF23CF91),
-    "time": "Now"
+    "homeTeamColor": Color(0xFF23CF91),
+    "awayTeamColor": Color(0xFF3A6FF7),
+    "time": "Now",
+    "homeScore": 5, // 主队分数
+    "awayScore": 3, // 客队分数
   },
   {
-    "name": "Nokia",
-    "image": "assets/images/user_2.png",
-    "subject": "2",
+    "homeTeamName": "Team C",
+    "awayTeamName": "Team D",
+    "homeTeamLogo": "assets/images/user_1.png",
+    "awayTeamLogo": "assets/images/user_2.png",
     "isAttachmentAvailable": true,
     "isChecked": false,
-    "tagColor": Color(0xFF23CF91),
-    "time": "15:32"
+    "homeTeamColor": Color(0xFFE91E63),
+    "awayTeamColor": Color(0xFF9C27B0),
+    "time": "15:32",
+    "homeScore": 2, // 主队分数
+    "awayScore": 4, // 客队分数
   },
   {
-    "name": "Marvin",
-    "image": "assets/images/user_3.png",
-    "subject": "3",
+    "homeTeamName": "Team E",
+    "awayTeamName": "Team F",
+    "homeTeamLogo": "assets/images/user_1.png",
+    "awayTeamLogo": "assets/images/user_2.png",
     "isAttachmentAvailable": true,
     "isChecked": false,
-    "tagColor": Color(0xFF23CF91),
+    "homeTeamColor": Color(0xFF2196F3),
+    "awayTeamColor": Color(0xFF673AB7),
     "time": "14:27",
+    "homeScore": 3, // 主队分数
+    "awayScore": 1, // 客队分数
   },
-  {
-    "name": "Domenic",
-    "image": "assets/images/user_4.png",
-    "subject": "4",
-    "isAttachmentAvailable": false,
-    "isChecked": true,
-    "tagColor": Color(0xFF23CF91),
-    "time": "10:43"
-  },
-  {
-    "name": "Elenor",
-    "image": "assets/images/user_5.png",
-    "subject": "5",
-    "isAttachmentAvailable": false,
-    "isChecked": false,
-    "tagColor": Color(0xFF3A6FF7),
-    "time": "9:58"
-  }
+  // 可以继续添加更多比赛数据
 ];
 
-String gameDemoText = "もうすぐ始まります";
+String gameDemoText = "比赛正在进行中！";
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(title: Text('棒球比赛')),
+      body: ListView.builder(
+        itemCount: games.length,
+        itemBuilder: (context, index) {
+          final game = games[index];
+          return Card(
+            child: ListTile(
+              leading: Image.asset(game.homeTeamLogo),
+              title: Text('${game.homeTeamName} vs ${game.awayTeamName}'),
+              subtitle: Text(
+                  '时间: ${game.time}\n比分: ${game.homeScore} - ${game.awayScore}'), // 显示分数
+              trailing: Icon(game.isChecked ? Icons.check : Icons.clear),
+              tileColor: game.isAttachmentAvailable
+                  ? Colors.green[50]
+                  : Colors.red[50],
+            ),
+          );
+        },
+      ),
+    ),
+  ));
+}
